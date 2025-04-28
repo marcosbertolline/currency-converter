@@ -1,4 +1,4 @@
-name: CI - Currency Converter API
+name: CI/CD - Currency Converter API
 
 on:
   push:
@@ -11,6 +11,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
+    env:  # <- Definimos aqui suas variáveis de ambiente
+      EXCHANGE_API_KEY: ${{ secrets.exchange_api_key }}
 
     steps:
     - name: Checkout code
